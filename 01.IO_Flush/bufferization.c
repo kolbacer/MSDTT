@@ -10,18 +10,12 @@ typedef struct {
 
 params getParams(int argc, char *argv[]) {
     params newParams = {false, false, false};
-    bool** paramPointers = malloc(3 * sizeof(bool*));
-    paramPointers[0] = &newParams.use_linebreaks;
-    paramPointers[1] = &newParams.use_flush;
-    paramPointers[2] = &newParams.use_file_redirect;
+    bool* currentParam = &(newParams.use_linebreaks);
 
-    for (int i = 1; i < argc; ++i) {
-        *paramPointers[i - 1] = argv[i][0] == '1';
-    }
+    for(int i = 1; i < argc && i <= 3; ++i, ++currentParam)
+        *currentParam = argv[i][0] == '1';
 
-    free(paramPointers);
-
-    return newParams;
+    return newParams; 
 }
 
 int main(int argc, char *argv[])
