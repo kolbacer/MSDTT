@@ -28,7 +28,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 eval set -- "$VALID_ARGS"
-while [ : ]; do
+while true; do
   case "$1" in
     -s | --source)
         source=$2
