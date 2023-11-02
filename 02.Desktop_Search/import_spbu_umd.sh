@@ -5,12 +5,12 @@ dl_spbu_s_e () {
 }
 
 dl_spbu_oop () {
-    dl_spbu_s_e | grep -o -P "'https://nc\.spbu\.ru/.+?'" | sed "s/'//g" | sort | uniq | ($probe && (sort -R | head -n 10) || cat)
+    dl_spbu_s_e | grep -o -P "'https://nc\.spbu\.ru/.+?'" | sed "s/'//g" | sort | uniq | { if $probe; then sort -R | head -n 10; else cat; fi; }
                 # grep -o -E
 }
 
 function download {
-    if ! wget "$(echo "$1")/download" -O "$destination$2.zip"; then
+    if ! wget "$1/download" -O "$destination$2.zip"; then
         >&2 echo "Cannot download $1"
         return 15
     fi
@@ -21,9 +21,8 @@ source=https://spbu.ru/sveden/education
 destination=./downloads/
 probe=false
 
-
-VALID_ARGS=$(getopt -o s:d:p --long source:,destination:,probe -- "$@")
-if [[ $? -ne 0 ]]; then
+VALID_ARGS=''
+if ! VALID_ARGS=$(getopt -o s:d:p --long source:,destination:,probe -- "$@"); then
     exit 1;
 fi
 

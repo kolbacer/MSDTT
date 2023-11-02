@@ -16,6 +16,6 @@ import_spbu_umd [option...]
 - `-p` or `--probe` - if specified, 10 random resources will be downloaded
 
 ### Example
-```console
+```shell 
 $ import_spbu_umd -s 'https://spbu.ru/sveden/education' --destination='./folder_to_download_to' -p
 ```
