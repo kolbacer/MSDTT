@@ -1,0 +1,12 @@
+name: 'ShellCheck'
+on: [push, workflow_dispatch]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Run ShellCheck
+        uses: azohra/shell-linter@latest
+        with:
+          path: "02.Desktop_Search/import_spbu_umd.sh"
