@@ -16,6 +16,15 @@ function download {
     fi
 }
 
+recoll_index () {
+    # configure
+    mkdir -p .recoll
+    echo "topdirs = $(realpath "$destination")" > ./.recoll/recoll.conf
+    # indexing
+    echo "start recollindex"
+    recollindex -c ./.recoll
+}
+
 # params
 source=https://spbu.ru/sveden/education
 destination=./downloads/
@@ -59,3 +68,4 @@ for u in $(dl_spbu_oop); do
     echo $?
     (( count++ ))
 done
+recoll_index
