@@ -5,6 +5,7 @@ on:
     branches: [ main, 03_A_FRACTAL ]
   pull_request:
     branches: [ main, 03_A_FRACTAL ]
+  workflow_dispatch
 
 env:
   BUILD_TYPE: Release
@@ -17,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/03.A.Fractal/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/03.A.Fractal/build --config ${{env.BUILD_TYPE}}
