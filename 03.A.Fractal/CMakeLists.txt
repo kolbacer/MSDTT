@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.5)
 project(03_A_Fractal C)
 
 set(CMAKE_C_STANDARD 11)
