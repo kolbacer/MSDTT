@@ -5,7 +5,7 @@ on:
     branches: [ main, 03_A_FRACTAL ]
   pull_request:
     branches: [ main, 03_A_FRACTAL ]
-  workflow_dispatch
+  workflow_dispatch:
 
 env:
   BUILD_TYPE: Release
