@@ -42,7 +42,7 @@ Koch snowflake:
 ```
 .
 ├── Readme.md - project description
-├── examples/ - foolder with examples
+├── examples/ - folder with examples
 ├── CMakeLists.txt - CMake configuration file
 ├── main.c - entry point
 ├── include - headers
