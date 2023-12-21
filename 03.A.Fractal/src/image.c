@@ -130,3 +130,27 @@ void set_pixel(image_p picture, pixel_coord x, pixel_coord y, pixel_data color)
 
     picture->data[picture->width * y + x] = color;
 }
+
+void draw_line(image_p picture, pixel_point_t p1, pixel_point_t p2, pixel_data color)
+{
+    assert(("Out of dimension", p1.x >= 0 && p1.y >= 0 && p1.x < picture->width && p1.y < picture->height &&
+                                p2.x >= 0 && p2.y >= 0 && p2.x < picture->width && p2.y < picture->height));
+    assert(("Invalid color", color >= 0 && color <= 255));
+
+    int dx = (int)p2.x - (int)p1.x;
+    int dy = (int)p2.y - (int)p1.y;
+
+    int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+
+    float x_inc = (float)dx / (float)steps;
+    float y_inc = (float)dy / (float)steps;
+
+    float x = (float)p1.x;
+    float y = (float)p1.y;
+    for (int i = 0; i <= steps; i++) {
+        set_pixel(picture, round(x), round(y), color);
+        x += x_inc;
+        y += y_inc;
+    }
+}
+

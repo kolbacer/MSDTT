@@ -16,6 +16,15 @@ typedef uint8_t pixel_data;
 typedef unsigned int pixel_coord;
 
 /**
+ * @brief Point representing the position of a pixel in an image
+ */
+typedef struct pixel_point
+{
+    pixel_coord x;
+    pixel_coord y;
+} pixel_point_t;
+
+/**
  * @brief Structure to store image data and metadata
  */
 struct image
@@ -101,5 +110,14 @@ pixel_data* get_pixel(image_p picture, pixel_coord x, pixel_coord y);
  * @param color Color value
  */
 void set_pixel(image_p picture, pixel_coord x, pixel_coord y, pixel_data color);
+
+/**
+ * @brief Draws a straight line of the specified color between 2 points
+ * @param picture Image
+ * @param p1 Start point
+ * @param p2 End point
+ * @param color Color value
+ */
+void draw_line(image_p picture, pixel_point_t p1, pixel_point_t p2, pixel_data color);
 
 #endif // _IMAGE_H_

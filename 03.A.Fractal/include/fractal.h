@@ -16,4 +16,11 @@ void empty_fractal(image_p picture);
  */
 void sierpinski_carpet(image_p picture, unsigned int steps);
 
+/**
+ * @brief Draws Koch snowflake fractal with specified depth
+ * @param picture Image
+ * @param steps Number of iterations
+ */
+void koch_snowflake(image_p picture, unsigned int steps);
+
 #endif // _FRACTAL_H_
