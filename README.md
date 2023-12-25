@@ -8,5 +8,11 @@ A C program and a script that compiles it and runs it with various parameters to
 
 [![ShellCheck](https://github.com/kolbacer/MSDTT/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/kolbacer/MSDTT/actions/workflows/shellcheck.yml)
 
-- A bash script for automated searching, loading, unpacking and indexing informational resources of SPbU.
+- A bash script for automated searching, loading and unpacking informational resources of SPbU.
 - A GitHub Action for checking script via [ShellCheck](https://www.shellcheck.net/).
+
+## 03.A.Fractal
+
+[![CMake](https://github.com/kolbacer/MSDTT/actions/workflows/cmake.yml/badge.svg)](https://github.com/kolbacer/MSDTT/actions/workflows/cmake.yml)
+
+A C program that can generate fractals.
